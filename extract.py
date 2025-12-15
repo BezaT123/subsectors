@@ -100,25 +100,18 @@ def extract_setup_data_to_json(excel_file_path, output_json_path=None):
         else:
             print("Warning: Sheet 'info' not found, skipping benchmark data extraction.")
         
-        # Check for 'financials' sheet and extract
-        financials_data = {}
-        financials_sheet_name = find_sheet_by_variations(
-            workbook,
-            primary_names=['financials', 'Financials', 'Financial', 'Financial Statements', 'FS']
-        )
-        if financials_sheet_name:
-            print(f"Using sheet: '{financials_sheet_name}' for financials data")
-            financials_data = extract_financials_data(workbook[financials_sheet_name])
-        else:
-            print("Warning: Sheet 'financials' not found, skipping financials data extraction.")
-        
         # Extract i_Setup data
         setup_data = extract_i_setup_data(workbook[setup_sheet_name])
         
         # Extract i_COS data
         cos_data = extract_i_cos_data(workbook[cos_sheet_name])
         
-        # Create the final JSON structure
+        # Get top 5 products by weighting only (primary signal for "top selling")
+        top_products = {
+            "byWeighting": get_top_products(cos_data, metric="weighting", top_n=5)
+        }
+        
+        # Create the final JSON structure (no financials section)
         result = {
             "extractedAt": datetime.now().isoformat(),
             "sourceFile": os.path.basename(excel_file_path),
@@ -130,10 +123,9 @@ def extract_setup_data_to_json(excel_file_path, output_json_path=None):
             },
             "i_COS": {
                 "totalProducts": len(cos_data),
-                "products": cos_data
+                "topProducts": top_products
             },
-            "info": info_data,
-            "financials": financials_data
+            "info": info_data
         }
         
         # Generate output file path if not provided
@@ -148,10 +140,6 @@ def extract_setup_data_to_json(excel_file_path, output_json_path=None):
         print(f"Extraction completed successfully!")
         print(f"i_Setup - Total fields: {len(setup_data)}")
         print(f"i_COS - Total products: {len(cos_data)}")
-        if financials_data:
-            total_line_items = sum(len(items) for items in financials_data.values())
-            categories = list(financials_data.keys())
-            print(f"Financials - Total line items: {total_line_items}, Categories: {len(categories)} ({', '.join(categories[:5])}{'...' if len(categories) > 5 else ''})")
         print(f"JSON file saved as: {output_json_path}")
         
         return result
@@ -299,44 +287,160 @@ def extract_industry_details_subtable(worksheet):
 def extract_i_cos_data(worksheet):
     """
     Extract product data from i_COS sheet with enhanced information extraction.
-    This now captures both product names and their cost of sales categories more comprehensively.
+    This captures product names, cost of sales categories, and financial metrics.
+    Extracts: product name, category, cost price, selling price, profit, weighting, margins.
     """
     cos_data = []
     
+    # Helper function to safely convert to float
+    def safe_float(value, default=0.0):
+        try:
+            if value is None or value == "":
+                return default
+            return float(value)
+        except (ValueError, TypeError):
+            return default
+    
+    # Helper function to check if a row is a header
+    def is_header_row(row_num):
+        product_cell = worksheet.cell(row=row_num, column=8)
+        return (product_cell.value and 
+                isinstance(product_cell.value, str) and
+                product_cell.value.strip().lower() in ["product name", "no", "#"])
+    
     for row_num in range(1, worksheet.max_row + 1):
+        # Skip header rows
+        if is_header_row(row_num):
+            continue
+            
         product_name_cell = worksheet.cell(row=row_num, column=8)   # Column H
         cos_category_cell = worksheet.cell(row=row_num, column=9)   # Column I
         
-        # Check if both cells have meaningful data
+        # Check if product name exists
         if (product_name_cell.value and 
-            cos_category_cell.value and
-            isinstance(product_name_cell.value, str) and
-            isinstance(cos_category_cell.value, str)):
+            isinstance(product_name_cell.value, str)):
             
             product_name = str(product_name_cell.value).strip()
-            cos_category = str(cos_category_cell.value).strip()
             
-            # Skip header rows or empty data, but be more inclusive of actual data
-            if (product_name and cos_category and 
-                product_name not in ["Product Name", ""] and
-                cos_category not in ["Cost of Sales Category", ""]):
-                
-                cos_data.append({
-                    "productName": product_name,
-                    "costOfSalesCategory": cos_category
-                })
+            # Skip empty product names or total rows
+            if (not product_name or 
+                product_name.lower() in ["", "total", "total / total weighted average"]):
+                continue
+            
+            cos_category = str(cos_category_cell.value).strip() if cos_category_cell.value else ""
+            
+            # Extract additional metrics (columns may vary, trying common positions)
+            # Try to find columns by header first, or use common positions
+            cost_price = None
+            selling_price = None
+            profit = None
+            weighting = None
+            median_margin = None
+            weighted_margin = None
+            
+            # Common column positions (adjust based on your actual sheet structure)
+            # Column J (10) - Cost Price, K (11) - Selling Price, L (12) - Profit, etc.
+            # Or search for headers in row 1
+            for col in range(10, min(20, worksheet.max_column + 1)):
+                header_cell = worksheet.cell(row=1, column=col)
+                if header_cell.value:
+                    header_text = str(header_cell.value).strip().lower()
+                    value_cell = worksheet.cell(row=row_num, column=col)
+                    
+                    if "cost price" in header_text:
+                        cost_price = safe_float(value_cell.value)
+                    elif "selling price" in header_text:
+                        selling_price = safe_float(value_cell.value)
+                    elif "profit" in header_text and "margin" not in header_text:
+                        profit = safe_float(value_cell.value)
+                    elif "weighting" in header_text:
+                        weighting = safe_float(value_cell.value)
+                    elif "median margin" in header_text:
+                        median_margin = safe_float(value_cell.value)
+                    elif "weighted margin" in header_text:
+                        weighted_margin = safe_float(value_cell.value)
+            
+            # If headers not found, try default positions (adjust as needed)
+            if cost_price is None:
+                cost_price = safe_float(worksheet.cell(row=row_num, column=10).value)  # Column J
+            if selling_price is None:
+                selling_price = safe_float(worksheet.cell(row=row_num, column=11).value)  # Column K
+            if profit is None:
+                profit = safe_float(worksheet.cell(row=row_num, column=12).value)  # Column L
+            if weighting is None:
+                weighting = safe_float(worksheet.cell(row=row_num, column=13).value)  # Column M
+            if median_margin is None:
+                median_margin = safe_float(worksheet.cell(row=row_num, column=16).value)  # Column P
+            if weighted_margin is None:
+                weighted_margin = safe_float(worksheet.cell(row=row_num, column=17).value)  # Column Q
+            
+            product_data = {
+                "productName": product_name,
+                "costOfSalesCategory": cos_category
+            }
+            
+            # Add metrics if they exist
+            if cost_price > 0:
+                product_data["costPrice"] = cost_price
+            if selling_price > 0:
+                product_data["sellingPrice"] = selling_price
+            if profit is not None:
+                product_data["profit"] = profit
+            if weighting > 0:
+                product_data["weighting"] = weighting
+            if median_margin is not None:
+                product_data["medianMargin"] = median_margin
+            if weighted_margin is not None:
+                product_data["weightedMargin"] = weighted_margin
+            
+            cos_data.append(product_data)
     
     # Remove any duplicate entries while preserving order
     seen = set()
     unique_cos_data = []
     for item in cos_data:
         # Create a unique identifier for each item
-        identifier = (item["productName"], item["costOfSalesCategory"])
+        identifier = (item["productName"], item.get("costOfSalesCategory", ""))
         if identifier not in seen:
             seen.add(identifier)
             unique_cos_data.append(item)
     
     return unique_cos_data
+
+def get_top_products(cos_data, metric="weighting", top_n=5):
+    """
+    Get top N products by a specified metric.
+    
+    Args:
+        cos_data: List of product dictionaries from extract_i_cos_data
+        metric: Metric to rank by. Options:
+            - "weighting": Weighting percentage (best for top selling by volume/contribution)
+            - "profit": Profit in UGX (most profitable products)
+            - "sellingPrice": Selling price per unit (highest priced products)
+            - "weightedMargin": Weighted margin percentage (best profit margins)
+            - "medianMargin": Median margin percentage
+        top_n: Number of top products to return (default: 5)
+    
+    Returns:
+        List of top N product dictionaries, sorted by the specified metric (descending)
+    """
+    # Filter products that have the requested metric
+    products_with_metric = [
+        product for product in cos_data 
+        if metric in product and product[metric] is not None
+    ]
+    
+    if not products_with_metric:
+        return []
+    
+    # Sort by metric (descending order)
+    sorted_products = sorted(
+        products_with_metric, 
+        key=lambda x: x[metric], 
+        reverse=True
+    )
+    
+    return sorted_products[:top_n]
 
 def extract_info_data(worksheet):
     """
@@ -599,24 +703,20 @@ def process_single_file(excel_file_path):
     if extracted_data:
         print(f"\nExtraction complete. Data saved to JSON file.")
         
-        # Print summary of Cost of Sales categories found for verification
-        cos_products = extracted_data.get('i_COS', {}).get('products', [])
-        cos_categories = list(set(item.get('costOfSalesCategory', '') for item in cos_products))
-        cos_categories = [cat for cat in cos_categories if cat]  # Remove empty strings
+        i_cos = extracted_data.get('i_COS', {})
+        top_products = i_cos.get('topProducts', {})
         
-        if cos_categories:
-            print(f"\nCost of Sales Categories found:")
-            for category in cos_categories:
-                print(f"  - {category}")
-        
-        # Print products found for verification
-        product_names = [item.get('productName', '') for item in cos_products if item.get('productName', '')]
-        if product_names:
-            print(f"\nProducts found ({len(product_names)}):")
-            for i, product in enumerate(product_names[:10]):  # Show first 10
-                print(f"  - {product}")
-            if len(product_names) > 10:
-                print(f"  ... and {len(product_names) - 10} more products")
+        # Show top 5 products by weighting only
+        if top_products:
+            print(f"\n{'='*60}")
+            print("Top 5 Products by Weighting:")
+            print(f"{'='*60}")
+            
+            top_by_weighting = top_products.get("byWeighting", [])
+            if top_by_weighting:
+                print(f"\nTop 5 by Weighting % (sales contribution):")
+                for i, product in enumerate(top_by_weighting, 1):
+                    print(f"  {i}. {product.get('productName', 'N/A')} - {product.get('weighting', 0):.1f}%")
     
     return extracted_data
 

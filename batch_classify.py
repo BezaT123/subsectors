@@ -37,7 +37,7 @@ def main() -> None:
 
     # Initialize classifier once
     openai_api_key = os.getenv("OPENAI_API_KEY")
-    reference_file_path = os.path.join(script_dir, 'Sub-Sectors_vf.xlsx')
+    reference_file_path = os.path.join(script_dir, 'categories ideas.xlsx')
     classifier = BusinessClassifier(openai_api_key, reference_file_path)
 
     excel_files = list_excel_files(excel_dir) # cap to first 20 files for testing
@@ -52,7 +52,7 @@ def main() -> None:
         'sector',
         'primary_subsector',
         'additional_subsectors',
-        'level_3_category',
+        'top_products',
         'confidence_explanation',
     ]
 
@@ -74,6 +74,7 @@ def main() -> None:
             # Collect row
             company_name = get_company_name_from_extracted(extracted) or os.path.splitext(os.path.basename(excel_path))[0]
             additional = "; ".join(result.additional_subsectors) if result.additional_subsectors else ''
+            top_products = "; ".join(result.top_products[:5]) if getattr(result, "top_products", None) else ''
 
             rows.append({
                 'source_file': os.path.basename(excel_path),
@@ -81,7 +82,7 @@ def main() -> None:
                 'sector': result.sector,
                 'primary_subsector': result.primary_subsector,
                 'additional_subsectors': additional,
-                'level_3_category': result.level_3_category,
+                'top_products': top_products,
                 'confidence_explanation': result.confidence_explanation,
             })
 
