@@ -1,0 +1,1391 @@
+{
+  "extractedAt": "2025-12-10T00:28:18.020802",
+  "sourceFile": "Client Analysis Model v24.3 (36).xlsm",
+  "i_Setup": {
+    "headers": [
+      "column_1",
+      "gumson_investment_client_analysis",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8",
+      "column_9",
+      "column_10",
+      "column_11",
+      "column_12",
+      "column_13",
+      "column_14",
+      "column_15",
+      "column_16",
+      "column_17",
+      "column_18",
+      "column_19",
+      "column_20",
+      "column_21",
+      "column_22",
+      "column_23",
+      "column_24",
+      "column_25",
+      "column_26",
+      "column_27",
+      "column_28",
+      "column_29",
+      "column_30",
+      "column_31",
+      "column_32",
+      "column_33",
+      "column_34",
+      "column_35",
+      "column_36",
+      "column_37",
+      "column_38",
+      "column_39",
+      "column_40",
+      "column_41"
+    ],
+    "rows": [
+      {
+        "gumson_investment_client_analysis": "i_Setup"
+      },
+      {
+        "gumson_investment_client_analysis": "Tab Check",
+        "column_8": "LINK TO FRONT SHEET"
+      },
+      {
+        "gumson_investment_client_analysis": 0,
+        "column_3": 0,
+        "column_8": "All file checks & alerts OK"
+      },
+      {
+        "gumson_investment_client_analysis": "Err",
+        "column_3": "Alert",
+        "column_8": "Version - May 2024"
+      },
+      {
+        "column_4": 1,
+        "column_5": "Setup Inputs"
+      },
+      {
+        "column_5": "1.1",
+        "column_6": "General Inputs"
+      },
+      {
+        "column_24": "Month",
+        "column_25": "Term",
+        "column_26": "Month Start",
+        "column_27": "Month End",
+        "column_28": "Year"
+      },
+      {
+        "column_3": 0,
+        "column_7": 1,
+        "column_8": "Business Name",
+        "column_9": "Text",
+        "column_13": "Gumson Investment",
+        "column_24": 1,
+        "column_25": 1,
+        "column_26": 1,
+        "column_27": 4,
+        "column_28": 0
+      },
+      {
+        "column_24": 2,
+        "column_25": 1,
+        "column_26": 1,
+        "column_27": 4,
+        "column_28": 0
+      },
+      {
+        "column_24": 3,
+        "column_25": 1,
+        "column_26": 1,
+        "column_27": 4,
+        "column_28": 0
+      },
+      {
+        "column_3": 0,
+        "column_7": 2,
+        "column_8": "Airtable ID",
+        "column_9": "No.",
+        "column_13": 2560545,
+        "column_24": 4,
+        "column_25": 1,
+        "column_26": 1,
+        "column_27": 4,
+        "column_28": 0
+      },
+      {
+        "column_24": 5,
+        "column_25": 2,
+        "column_26": 5,
+        "column_27": 8,
+        "column_28": 0
+      },
+      {
+        "column_24": 6,
+        "column_25": 2,
+        "column_26": 5,
+        "column_27": 8,
+        "column_28": 0
+      },
+      {
+        "column_7": 3,
+        "column_8": "Industry Details",
+        "column_24": 7,
+        "column_25": 2,
+        "column_26": 5,
+        "column_27": 8,
+        "column_28": 0
+      },
+      {
+        "column_24": 8,
+        "column_25": 2,
+        "column_26": 5,
+        "column_27": 8,
+        "column_28": 0
+      },
+      {
+        "column_3": 0,
+        "column_8": "Industry Type",
+        "column_9": "List",
+        "column_13": "Single",
+        "column_24": 9,
+        "column_25": 3,
+        "column_26": 9,
+        "column_27": 12,
+        "column_28": 0
+      },
+      {
+        "column_3": 0,
+        "column_8": "Primary Industry",
+        "column_9": "List",
+        "column_13": "Trade/Retail",
+        "column_24": 10,
+        "column_25": 3,
+        "column_26": 9,
+        "column_27": 12,
+        "column_28": 0
+      },
+      {
+        "column_8": "Secondary Industry",
+        "column_9": "List",
+        "column_13": "Trade/Retail",
+        "column_24": 11,
+        "column_25": 3,
+        "column_26": 9,
+        "column_27": 12,
+        "column_28": 0
+      },
+      {
+        "column_3": 0,
+        "column_8": "Benchmarking Business Sector",
+        "column_9": "List",
+        "column_13": "Retail / Trade (produce)",
+        "column_24": 12,
+        "column_25": 3,
+        "column_26": 9,
+        "column_27": 12,
+        "column_28": 0
+      },
+      {
+        "column_3": 0,
+        "column_7": 4,
+        "column_8": "Currency",
+        "column_9": "List",
+        "column_13": "UGX"
+      },
+      {
+        "column_13": "Year",
+        "column_14": "Month"
+      },
+      {
+        "column_3": 0,
+        "column_7": 5,
+        "column_8": "Historicals Start Month",
+        "column_9": "List",
+        "column_13": 2024,
+        "column_14": 6,
+        "column_24": "2024-06-01 00:00:00"
+      },
+      {
+        "column_13": "Year",
+        "column_14": "Month"
+      },
+      {
+        "column_3": 0,
+        "column_7": 6,
+        "column_8": "Projections Start Month",
+        "column_9": "List",
+        "column_13": 2025,
+        "column_14": 7,
+        "column_24": "2025-07-01 00:00:00",
+        "column_25": "2025-07-31 00:00:00"
+      },
+      {
+        "column_25": "2025-06-30 00:00:00"
+      },
+      {
+        "column_13": "Year",
+        "column_14": "Month",
+        "column_25": "2028-12-31 00:00:00"
+      },
+      {
+        "column_3": 0,
+        "column_7": 7,
+        "column_8": "Projections End Month",
+        "column_9": "List",
+        "column_13": 2026,
+        "column_14": 7,
+        "column_24": "2026-07-31 00:00:00"
+      },
+      {
+        "column_7": 8,
+        "column_8": "Timeline",
+        "column_9": "List",
+        "column_13": "Monthly"
+      },
+      {
+        "column_5": "1.2",
+        "column_6": "Naming Inputs"
+      },
+      {
+        "column_7": 9,
+        "column_8": "Revenue Streams"
+      },
+      {
+        "column_13": "Name",
+        "column_15": "Type",
+        "column_16": "Industry",
+        "column_17": "Sub-1",
+        "column_18": "Sub-2",
+        "column_19": "Sub-3"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 1",
+        "column_9": "Text / List",
+        "column_13": "Sales",
+        "column_15": "Revenue",
+        "column_16": "Trade/Retail",
+        "column_17": "Revenue",
+        "column_18": "Products",
+        "column_19": "Wholesale",
+        "column_24": 1,
+        "column_25": "RS1 - Sales"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 2",
+        "column_9": "Text / List",
+        "column_24": 2,
+        "column_25": "RS2 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 3",
+        "column_9": "Text / List",
+        "column_24": 3,
+        "column_25": "RS3 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 4",
+        "column_9": "Text / List",
+        "column_24": 4,
+        "column_25": "RS4 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 5",
+        "column_9": "Text / List",
+        "column_24": 5,
+        "column_25": "RS5 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 6",
+        "column_9": "Text / List",
+        "column_24": 6,
+        "column_25": "RS6 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 7",
+        "column_9": "Text / List",
+        "column_24": 7,
+        "column_25": "RS7 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 8",
+        "column_9": "Text / List",
+        "column_24": 8,
+        "column_25": "RS8 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 9",
+        "column_9": "Text / List",
+        "column_24": 9,
+        "column_25": "RS9 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 10",
+        "column_9": "Text / List",
+        "column_24": 10,
+        "column_25": "RS10 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Revenue Steam 11",
+        "column_9": "Text / List",
+        "column_24": 11,
+        "column_25": "RS11 - N/A"
+      },
+      {
+        "column_7": 10,
+        "column_8": "Cost of Sales"
+      },
+      {
+        "column_13": "Name",
+        "column_15": "Type",
+        "column_16": "Industry",
+        "column_17": "Sub-1",
+        "column_18": "Sub-2",
+        "column_19": "Sub-3"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS1 Category 1",
+        "column_9": "Text / List",
+        "column_13": "Purchases",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "Cost of Sale",
+        "column_18": "Purchases",
+        "column_24": 1,
+        "column_25": "DC1 - Purchases"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS1 Category 2",
+        "column_9": "Text / List",
+        "column_24": 2,
+        "column_25": "DC2 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS1 Category 3",
+        "column_9": "Text / List",
+        "column_24": 3,
+        "column_25": "DC3 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS1 Category 4",
+        "column_9": "Text / List",
+        "column_24": 4,
+        "column_25": "DC4 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS1 Category 5",
+        "column_9": "Text / List",
+        "column_24": 5,
+        "column_25": "DC5 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS2 Category 6",
+        "column_9": "Text / List",
+        "column_24": 6,
+        "column_25": "DC6 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS2 Category 7",
+        "column_9": "Text / List",
+        "column_24": 7,
+        "column_25": "DC7 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS2 Category 8",
+        "column_9": "Text / List",
+        "column_24": 8,
+        "column_25": "DC8 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS2 Category 9",
+        "column_9": "Text / List",
+        "column_24": 9,
+        "column_25": "DC9 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS2 Category 10",
+        "column_9": "Text / List",
+        "column_24": 10,
+        "column_25": "DC10 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS3 Category 11",
+        "column_9": "Text / List",
+        "column_24": 11,
+        "column_25": "DC11 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS3 Category 12",
+        "column_9": "Text / List",
+        "column_24": 12,
+        "column_25": "DC12 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS3 Category 13",
+        "column_9": "Text / List",
+        "column_24": 13,
+        "column_25": "DC13 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS3 Category 14",
+        "column_9": "Text / List",
+        "column_24": 14,
+        "column_25": "DC14 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "COS RS3 Category 15",
+        "column_9": "Text / List",
+        "column_24": 15,
+        "column_25": "DC15 - N/A"
+      },
+      {
+        "column_7": 11,
+        "column_8": "Operating Costs"
+      },
+      {
+        "column_13": "Name",
+        "column_15": "Type",
+        "column_16": "Industry",
+        "column_17": "Sub-1",
+        "column_18": "Sub-2",
+        "column_19": "Sub-3"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 1",
+        "column_9": "Text / List",
+        "column_13": "Salaries",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Personnel Costs",
+        "column_19": "Salary/Allowances",
+        "column_24": 1,
+        "column_25": "OE1 - Salaries"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 2",
+        "column_9": "Text / List",
+        "column_13": "Electricity",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Utilities/Services",
+        "column_19": "Electricity",
+        "column_24": 2,
+        "column_25": "OE2 - Electricity"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 3",
+        "column_9": "Text / List",
+        "column_13": "Stationery & Printing",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Regular Spend",
+        "column_19": "Stationary/Printing",
+        "column_24": 3,
+        "column_25": "OE3 - Stationery & Printing"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 4",
+        "column_9": "Text / List",
+        "column_13": "Trading licence",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Statutory Deductions",
+        "column_19": "Licenses",
+        "column_24": 4,
+        "column_25": "OE4 - Trading licence"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 5",
+        "column_9": "Text / List",
+        "column_13": "Transport",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Vehicles",
+        "column_19": "Other",
+        "column_24": 5,
+        "column_25": "OE5 - Transport"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 6",
+        "column_9": "Text / List",
+        "column_13": "Rent",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Rent",
+        "column_24": 6,
+        "column_25": "OE6 - Rent"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 7",
+        "column_9": "Text / List",
+        "column_13": "Packaging bags",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Regular Spend",
+        "column_19": "Other Small Items",
+        "column_24": 7,
+        "column_25": "OE7 - Packaging bags"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 8",
+        "column_9": "Text / List",
+        "column_13": "Loading & offloading",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Regular Spend",
+        "column_19": "Loading/Offloading",
+        "column_24": 8,
+        "column_25": "OE8 - Loading & offloading"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 9",
+        "column_9": "Text / List",
+        "column_13": "Drawings",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Personnel Costs",
+        "column_19": "Director Drawings",
+        "column_24": 9,
+        "column_25": "OE9 - Drawings"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 10",
+        "column_9": "Text / List",
+        "column_13": "Contigency",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "OPEX",
+        "column_18": "Contingency",
+        "column_24": 10,
+        "column_25": "OE10 - Contigency"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 11",
+        "column_9": "Text / List",
+        "column_24": 11,
+        "column_25": "OE11 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 12",
+        "column_9": "Text / List",
+        "column_24": 12,
+        "column_25": "OE12 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 13",
+        "column_9": "Text / List",
+        "column_24": 13,
+        "column_25": "OE13 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 14",
+        "column_9": "Text / List",
+        "column_24": 14,
+        "column_25": "OE14 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "OPEX Category 15",
+        "column_9": "Text / List",
+        "column_24": 15,
+        "column_25": "OE15 - N/A"
+      },
+      {
+        "column_7": 12,
+        "column_8": "Financing Costs"
+      },
+      {
+        "column_13": "Name",
+        "column_15": "Type",
+        "column_16": "Industry",
+        "column_17": "Sub-1",
+        "column_18": "Sub-2",
+        "column_19": "Sub-3"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 1",
+        "column_9": "Text / List",
+        "column_13": "BV Loan",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "Financial Costs",
+        "column_18": "Balloon Loans (Interest+Principal)",
+        "column_24": 1,
+        "column_25": "FC1 - BV Loan"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 2",
+        "column_9": "Text / List",
+        "column_13": "Ugafode",
+        "column_15": "Expenditure",
+        "column_16": "Trade/Retail",
+        "column_17": "Financial Costs",
+        "column_18": "Non-Balloon Loans (interest+principal)",
+        "column_24": 2,
+        "column_25": "FC2 - Ugafode"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 3",
+        "column_9": "Text / List",
+        "column_24": 3,
+        "column_25": "FC3 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 4",
+        "column_9": "Text / List",
+        "column_24": 4,
+        "column_25": "FC4 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 5",
+        "column_9": "Text / List",
+        "column_24": 5,
+        "column_25": "FC5 - N/A"
+      },
+      {
+        "column_7": 13,
+        "column_8": "Capital Investment"
+      },
+      {
+        "column_15": "Type",
+        "column_17": "Sub-1",
+        "column_19": "Sub-3"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 1",
+        "column_9": "Text / List",
+        "column_24": 1,
+        "column_25": "CI1 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 2",
+        "column_9": "Text / List",
+        "column_24": 2,
+        "column_25": "CI2 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 3",
+        "column_9": "Text / List",
+        "column_24": 3,
+        "column_25": "CI3 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 4",
+        "column_9": "Text / List",
+        "column_24": 4,
+        "column_25": "CI4 - N/A"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Finance Cost Category 5",
+        "column_9": "Text / List",
+        "column_24": 5,
+        "column_25": "CI5 - N/A"
+      },
+      {
+        "column_5": "1.3",
+        "column_6": "Credit Scoring Data"
+      },
+      {
+        "column_7": 14,
+        "column_8": "Borrowing Details"
+      },
+      {
+        "column_24": "Monthly Instalment:"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Size of Balloon loan",
+        "column_9": "UGX",
+        "column_13": 100000000,
+        "column_15": "What is the principal of the current loan they are applying for?",
+        "column_24": 8458333.333333332
+      },
+      {
+        "column_3": 0,
+        "column_8": "Length of Balloon loan",
+        "column_9": "Months",
+        "column_13": 12,
+        "column_15": "How many months do they want this facility for?"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Biggest prior loan taken",
+        "column_9": "UGX",
+        "column_13": 30000000,
+        "column_15": "What's the largest single loan they've taken prior to this facility?"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Total value of all loans taken",
+        "column_9": "UGX",
+        "column_13": 163600000,
+        "column_15": "What's the sum principal value of all loans previously taken?"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Current outstanding loans",
+        "column_9": "UGX",
+        "column_13": 23000000,
+        "column_15": "What's the outstanding principal value of all live loans?"
+      },
+      {
+        "column_7": 15,
+        "column_8": "Credit Scoring Details"
+      },
+      {
+        "column_3": 0,
+        "column_8": "CRB Score Borrower 1",
+        "column_9": "no.",
+        "column_13": 710
+      },
+      {
+        "column_8": "CRB Score Borrower 2",
+        "column_9": "no."
+      },
+      {
+        "column_8": "CRB Score Company",
+        "column_9": "no."
+      },
+      {
+        "column_7": 16,
+        "column_8": "Cash Flow Details"
+      },
+      {
+        "column_3": 0,
+        "column_8": "% Historical revenue verified",
+        "column_9": "%",
+        "column_13": 1,
+        "column_15": "What % of historical revenue transactions have we verified through source data e.g. receipts, sales records etc?"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Claimed Revenue - Good Day",
+        "column_9": "UGX",
+        "column_13": 25000000,
+        "column_15": "What does the client claim they sell in a good day?"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Claimed Revenue - Bad day",
+        "column_9": "UGX",
+        "column_13": 7000000,
+        "column_15": "What does the client claim they sell in a bad day?"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Monthly Installments Comfortable with",
+        "column_9": "UGX",
+        "column_13": 9000000,
+        "column_15": "What installment for ALL loans are they comfortable paying each month?"
+      },
+      {
+        "column_7": 17,
+        "column_8": "Collateral & Other"
+      },
+      {
+        "column_13": "Collateral Type",
+        "column_16": "Collateral Forced Sale Value",
+        "column_17": "Adjusted Forced Sale Value",
+        "column_24": "Credit \nScore",
+        "column_25": "Percentage",
+        "column_26": "Weighted Credit Score",
+        "column_27": "Rank",
+        "column_28": "Main Collateral"
+      },
+      {
+        "column_3": 0,
+        "column_8": "Collateral 1",
+        "column_9": "List / UGX",
+        "column_13": "Untitled Land",
+        "column_16": 85000000,
+        "column_17": 63750000,
+        "column_24": 3,
+        "column_25": 0.5666666666666667,
+        "column_26": 1.7,
+        "column_27": 1,
+        "column_28": "Untitled Land"
+      },
+      {
+        "column_8": "Collateral 2",
+        "column_9": "List / UGX",
+        "column_13": "Titled Land",
+        "column_16": 65000000,
+        "column_17": 65000000,
+        "column_24": 5,
+        "column_25": 0.43333333333333335,
+        "column_26": 2.166666666666667,
+        "column_27": 2
+      },
+      {
+        "column_8": "Collateral 3",
+        "column_9": "List / UGX",
+        "column_24": 0,
+        "column_25": 0,
+        "column_26": 0
+      },
+      {
+        "column_8": "Collateral 4",
+        "column_9": "List / UGX",
+        "column_24": 0,
+        "column_25": 0,
+        "column_26": 0
+      },
+      {
+        "column_3": 0,
+        "column_8": "Years in Business",
+        "column_9": "Years",
+        "column_13": 7,
+        "column_24": "Titled Land",
+        "column_25": 1
+      },
+      {
+        "column_24": "Insured Vehicle",
+        "column_25": 0.8
+      },
+      {
+        "column_3": 0,
+        "column_8": "Years at current address",
+        "column_9": "Years",
+        "column_13": 12,
+        "column_24": "Untitled Land",
+        "column_25": 0.75
+      },
+      {
+        "column_24": "Uninsured Vehicle",
+        "column_25": 0.5
+      },
+      {
+        "column_24": "Other",
+        "column_25": 0.1
+      },
+      {
+        "column_7": 18,
+        "column_8": "Recommendations"
+      },
+      {
+        "column_13": "Name"
+      },
+      {
+        "column_8": "Recommender 1",
+        "column_9": "Text",
+        "column_13": "Big Ben ones stop electronics",
+        "column_24": 1
+      },
+      {
+        "column_8": "Recommender 2",
+        "column_9": "Text"
+      },
+      {
+        "column_8": "Recommender 3",
+        "column_9": "Text"
+      },
+      {
+        "column_8": "Recommender 4",
+        "column_9": "Text"
+      },
+      {
+        "column_4": "END OF WORKSHEET"
+      }
+    ],
+    "row_count": 125
+  },
+  "i_COS": {
+    "headers": [
+      "column_1",
+      "gumson_investment_client_analysis",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8",
+      "column_9",
+      "column_10",
+      "column_11",
+      "column_12",
+      "column_13",
+      "column_14",
+      "column_15",
+      "column_16",
+      "column_17",
+      "column_18",
+      "column_19",
+      "column_20",
+      "column_21",
+      "column_22",
+      "column_23",
+      "column_24",
+      "column_25",
+      "column_26",
+      "column_27",
+      "column_28",
+      "column_29",
+      "column_30",
+      "column_31",
+      "column_32",
+      "column_33",
+      "column_34",
+      "column_35",
+      "column_36",
+      "column_37",
+      "column_38",
+      "column_39",
+      "column_40",
+      "column_41",
+      "column_42",
+      "column_43",
+      "column_44",
+      "column_45",
+      "column_46",
+      "column_47",
+      "column_48",
+      "column_49"
+    ],
+    "rows": [
+      {
+        "gumson_investment_client_analysis": "i_COS"
+      },
+      {
+        "gumson_investment_client_analysis": "Tab Check",
+        "column_8": "LINK TO FRONT SHEET"
+      },
+      {
+        "gumson_investment_client_analysis": 0,
+        "column_3": 0,
+        "column_8": "All file checks & alerts OK"
+      },
+      {
+        "gumson_investment_client_analysis": "Err",
+        "column_3": "Alert"
+      },
+      {
+        "column_4": 1,
+        "column_5": "Margin Calculation"
+      },
+      {
+        "column_5": "1.1",
+        "column_6": "Cost of Sales Data"
+      },
+      {
+        "column_7": "Cost of Sales Category 1"
+      },
+      {
+        "column_8": "Cost of Sale Category:",
+        "column_9": "DC1 - Purchases"
+      },
+      {
+        "column_7": "No",
+        "column_8": "Product Name",
+        "column_9": "Cost of Sales Category",
+        "column_10": "Cost Price\n(UGX)",
+        "column_11": "Selling Price \n(UGX)",
+        "column_12": "Profit \n(UGX)",
+        "column_13": "Weighting\n(%)",
+        "column_14": "Month",
+        "column_15": "Year",
+        "column_16": "Median Margin\n(%)",
+        "column_17": "Weighted Margin\n(%)"
+      },
+      {
+        "column_7": 1,
+        "column_8": "Maize",
+        "column_9": "DC1 - Purchases",
+        "column_10": 2000,
+        "column_11": 2400,
+        "column_12": 400,
+        "column_13": 0.2,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.16666666666666666,
+        "column_17": 0.03333333333333333
+      },
+      {
+        "column_7": 2,
+        "column_8": "Millet",
+        "column_9": "DC1 - Purchases",
+        "column_10": 2000,
+        "column_11": 2500,
+        "column_12": 500,
+        "column_13": 0.05,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.2,
+        "column_17": 0.010000000000000002
+      },
+      {
+        "column_7": 3,
+        "column_8": "Soya",
+        "column_9": "DC1 - Purchases",
+        "column_10": 2800,
+        "column_11": 3000,
+        "column_12": 200,
+        "column_13": 0.1,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.06666666666666667,
+        "column_17": 0.006666666666666667
+      },
+      {
+        "column_7": 4,
+        "column_8": "Sunflower",
+        "column_9": "DC1 - Purchases",
+        "column_10": 1800,
+        "column_11": 2000,
+        "column_12": 200,
+        "column_13": 0.15,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.1,
+        "column_17": 0.015
+      },
+      {
+        "column_7": 5,
+        "column_8": "simsim",
+        "column_9": "DC1 - Purchases",
+        "column_10": 4500,
+        "column_11": 5000,
+        "column_12": 500,
+        "column_13": 0.1,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.1,
+        "column_17": 0.010000000000000002
+      },
+      {
+        "column_7": 6,
+        "column_8": "pegeon peas",
+        "column_9": "DC1 - Purchases",
+        "column_10": 2000,
+        "column_11": 2500,
+        "column_12": 500,
+        "column_13": 0.1,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.2,
+        "column_17": 0.020000000000000004
+      },
+      {
+        "column_7": 7,
+        "column_8": "Rice - super",
+        "column_9": "DC1 - Purchases",
+        "column_10": 3400,
+        "column_11": 3800,
+        "column_12": 400,
+        "column_13": 0.15,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.10526315789473684,
+        "column_17": 0.015789473684210523
+      },
+      {
+        "column_7": 8,
+        "column_8": "Sorghum",
+        "column_9": "DC1 - Purchases",
+        "column_10": 2000,
+        "column_11": 2500,
+        "column_12": 500,
+        "column_13": 0.1,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.2,
+        "column_17": 0.020000000000000004
+      },
+      {
+        "column_7": 9,
+        "column_8": "Ground nuts",
+        "column_9": "DC1 - Purchases",
+        "column_10": 2250,
+        "column_11": 3000,
+        "column_12": 750,
+        "column_13": 0.05,
+        "column_14": 6,
+        "column_15": 2025,
+        "column_16": 0.25,
+        "column_17": 0.0125
+      },
+      {
+        "column_7": 10
+      },
+      {
+        "column_7": 11
+      },
+      {
+        "column_7": 12
+      },
+      {
+        "column_7": 13
+      },
+      {
+        "column_7": 14
+      },
+      {
+        "column_7": 15
+      },
+      {
+        "gumson_investment_client_analysis": 0,
+        "column_8": "Total / Total Weighted Average",
+        "column_10": 2522.5,
+        "column_11": 2925,
+        "column_12": 402.5,
+        "column_13": 1,
+        "column_16": 0.16666666666666666,
+        "column_17": 0.14328947368421055
+      },
+      {
+        "column_7": "Cost of Sales Category 2"
+      },
+      {
+        "column_8": "Cost of Sale Category:"
+      },
+      {
+        "column_7": "No",
+        "column_8": "Product Name",
+        "column_9": "Cost of Sales Category",
+        "column_10": "Cost Price\n(UGX)",
+        "column_11": "Selling Price \n(UGX)",
+        "column_12": "Profit \n(UGX)",
+        "column_13": "Weighting\n(%)",
+        "column_14": "Month",
+        "column_15": "Year",
+        "column_16": "Median Margin\n(%)",
+        "column_17": "Weighted Margin\n(%)"
+      },
+      {
+        "column_7": 1
+      },
+      {
+        "column_7": 2
+      },
+      {
+        "column_7": 3
+      },
+      {
+        "column_7": 4
+      },
+      {
+        "column_7": 5
+      },
+      {
+        "column_7": 6
+      },
+      {
+        "column_7": 7
+      },
+      {
+        "column_7": 8
+      },
+      {
+        "column_7": 9
+      },
+      {
+        "column_7": 10
+      },
+      {
+        "column_7": 11
+      },
+      {
+        "column_7": 12
+      },
+      {
+        "column_7": 13
+      },
+      {
+        "column_7": 14
+      },
+      {
+        "column_7": 15
+      },
+      {
+        "gumson_investment_client_analysis": 0,
+        "column_8": "Total / Total Weighted Average",
+        "column_10": 0,
+        "column_11": 0,
+        "column_12": 0,
+        "column_13": 0,
+        "column_16": "#NUM!",
+        "column_17": 0
+      },
+      {
+        "column_7": "Cost of Sales Category 3"
+      },
+      {
+        "column_8": "Cost of Sale Category:"
+      },
+      {
+        "column_7": "No",
+        "column_8": "Product Name",
+        "column_9": "Cost of Sales Category",
+        "column_10": "Cost Price\n(UGX)",
+        "column_11": "Selling Price \n(UGX)",
+        "column_12": "Profit \n(UGX)",
+        "column_13": "Weighting\n(%)",
+        "column_14": "Month",
+        "column_15": "Year",
+        "column_16": "Median Margin\n(%)",
+        "column_17": "Weighted Margin\n(%)"
+      },
+      {
+        "column_7": 1
+      },
+      {
+        "column_7": 2
+      },
+      {
+        "column_7": 3
+      },
+      {
+        "column_7": 4
+      },
+      {
+        "column_7": 5
+      },
+      {
+        "column_7": 6
+      },
+      {
+        "column_7": 7
+      },
+      {
+        "column_7": 8
+      },
+      {
+        "column_7": 9
+      },
+      {
+        "column_7": 10
+      },
+      {
+        "column_7": 11
+      },
+      {
+        "column_7": 12
+      },
+      {
+        "column_7": 13
+      },
+      {
+        "column_7": 14
+      },
+      {
+        "column_7": 15
+      },
+      {
+        "gumson_investment_client_analysis": 0,
+        "column_8": "Total / Total Weighted Average",
+        "column_10": 0,
+        "column_11": 0,
+        "column_12": 0,
+        "column_13": 0,
+        "column_16": "#NUM!",
+        "column_17": 0
+      },
+      {
+        "column_5": "1.2",
+        "column_6": "Weighted Averages"
+      },
+      {
+        "column_7": "Cost of Sales"
+      },
+      {
+        "column_8": "Cost of Sales Categories",
+        "column_9": "Median Margin",
+        "column_10": "Weighted Margin"
+      },
+      {
+        "column_8": "DC1 - Purchases",
+        "column_9": 0.16666666666666666,
+        "column_10": 0.14328947368421055
+      },
+      {
+        "column_9": "#NUM!",
+        "column_10": 0
+      },
+      {
+        "column_9": "#NUM!",
+        "column_10": 0
+      },
+      {
+        "column_4": "END OF WORKSHEET"
+      }
+    ],
+    "row_count": 70
+  },
+  "info_metrics": {
+    "id": 2560545,
+    "industry_type": "Single",
+    "primary_industry": "Trade/Retail",
+    "secondary_industry": "Trade/Retail",
+    "business_name": "Sector",
+    "gumson_investment": "Trade/Retail",
+    "number_of_teaching_staff": "Number of Pre Primary Students",
+    "number_of_doctors": "Number of Clinicians",
+    "number_of_hotel_rooms": "Services offered",
+    "number_of_pump_attendants": "Number of Pumps",
+    "number_of_production_staff": "Items Produced",
+    "products_sold": "Number of Products Sold",
+    "farm_type": "Size of Land (Acres)",
+    "number_of_management_admin_staff": "Number of Drivers"
+  }
+}

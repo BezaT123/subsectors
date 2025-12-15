@@ -1,0 +1,613 @@
+{
+  "extractedAt": "2025-12-10T00:26:55.084558",
+  "sourceFile": "Financials for Shalom Edited.xlsm",
+  "i_Setup": {
+    "headers": [
+      "summary",
+      "column_2",
+      "column_3",
+      "column_4",
+      "column_5",
+      "column_6",
+      "column_7",
+      "column_8",
+      "column_9",
+      "column_10",
+      "column_11",
+      "column_12",
+      "column_13",
+      "column_14"
+    ],
+    "rows": [
+      {
+        "summary": "Total Revenue",
+        "column_4": "Count of Months Historical"
+      },
+      {
+        "summary": 4214610800,
+        "column_4": 3
+      },
+      {
+        "summary": "Total Expenditure",
+        "column_4": "Count of Months Projections"
+      },
+      {
+        "summary": 4029413797.7749996,
+        "column_4": 6
+      },
+      {
+        "summary": "Net Cash"
+      },
+      {
+        "summary": 185197002.22500038
+      },
+      {
+        "summary": "FINANCIAL BREAKDOWN"
+      },
+      {
+        "summary": "Historical",
+        "column_5": "Projections"
+      },
+      {
+        "summary": "From",
+        "column_2": "To",
+        "column_5": "From",
+        "column_6": "To"
+      },
+      {
+        "summary": "00:00:00",
+        "column_2": "00:00:00",
+        "column_5": "00:00:00",
+        "column_6": "00:00:00"
+      },
+      {
+        "column_2": "TOTAL",
+        "column_3": "PER MONTH",
+        "column_6": "TOTAL",
+        "column_7": "PER MONTH"
+      },
+      {
+        "summary": "Revenue",
+        "column_2": 1164348800,
+        "column_3": 388116266.6666667,
+        "column_5": "Revenue",
+        "column_6": 3050262000,
+        "column_7": 508377000
+      },
+      {
+        "summary": "Cost of Sale",
+        "column_2": 298215000,
+        "column_3": 99405000,
+        "column_5": "Cost of Sale",
+        "column_6": 1641888450,
+        "column_7": 273648075
+      },
+      {
+        "summary": "Operating Costs",
+        "column_2": 434188500,
+        "column_3": 144729500,
+        "column_5": "Operating Costs",
+        "column_6": 934590746.25,
+        "column_7": 155765124.375
+      },
+      {
+        "summary": "Earnings Before Loans & Taxes",
+        "column_2": 431945300,
+        "column_3": 143981766.66666666,
+        "column_5": "Earnings Before Loans & Taxes",
+        "column_6": 473782803.75,
+        "column_7": 78963800.625
+      },
+      {
+        "summary": "Finance Costs",
+        "column_2": 66455253,
+        "column_3": 22151751,
+        "column_5": "Finance Costs",
+        "column_6": 362623582.00000006,
+        "column_7": 60437263.66666668
+      },
+      {
+        "summary": "Corporation Tax",
+        "column_2": 0,
+        "column_3": 0,
+        "column_5": "Corporation Tax",
+        "column_6": 33347766.52499999,
+        "column_7": 5557961.0874999985
+      },
+      {
+        "summary": "Net Profit",
+        "column_2": 365490047,
+        "column_3": 121830015.66666667,
+        "column_5": "Net Profit",
+        "column_6": 77811455.22499995,
+        "column_7": 12968575.870833324
+      },
+      {
+        "summary": "Capital Investments",
+        "column_2": 258104500,
+        "column_3": 86034833.33333333,
+        "column_5": "Capital Investments",
+        "column_6": 0,
+        "column_7": 0
+      },
+      {
+        "summary": "Net Cash",
+        "column_2": 107385547,
+        "column_3": 35795182.333333336,
+        "column_5": "Net Cash",
+        "column_6": 77811455.22499995,
+        "column_7": 12968575.870833324
+      },
+      {
+        "summary": "Gross Margin",
+        "column_2": 866133800,
+        "column_5": "Gross Margin",
+        "column_6": 1408373550
+      },
+      {
+        "summary": "Gross Margin %",
+        "column_2": 0.7438782948889542,
+        "column_5": "Gross Margin %",
+        "column_6": 0.4617221569819248
+      },
+      {
+        "summary": "EBIT Margin",
+        "column_2": 0.3709758622158583,
+        "column_5": "EBIT Margin",
+        "column_6": 0.15532528148401678
+      },
+      {
+        "summary": "Net Profit Margin",
+        "column_2": 0.3139008233615219,
+        "column_5": "Net Profit Margin",
+        "column_6": 0.025509761202480295
+      },
+      {
+        "summary": "Debt To Income Ratio",
+        "column_2": 0.153851084848012,
+        "column_5": "Debt To Income Ratio",
+        "column_6": 0.7653793660931284
+      },
+      {
+        "summary": "ALL CATEGORIES"
+      },
+      {
+        "summary": "Type",
+        "column_2": "Industry",
+        "column_3": "Branch",
+        "column_4": "Sub-1",
+        "column_5": "Sub-2",
+        "column_6": "Sub-3",
+        "column_7": "Total"
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_2": "Education",
+        "column_4": "Revenue",
+        "column_5": "Tuition",
+        "column_7": 4108770800
+      },
+      {
+        "summary": "Revenue",
+        "column_2": "Education",
+        "column_4": "Revenue",
+        "column_5": "Delivery Fees",
+        "column_7": 105840000
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Revenue",
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Revenue",
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Revenue",
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "Cost of Sale",
+        "column_5": "Customer Non-Payment",
+        "column_7": 1030547700
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "Cost of Sale",
+        "column_5": "School Bus",
+        "column_6": "Fuel",
+        "column_7": 87611250
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "Cost of Sale",
+        "column_5": "Feeding",
+        "column_6": "Food Items",
+        "column_7": 772534500
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "Cost of Sale",
+        "column_5": "Examination fees",
+        "column_7": 49410000
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "Cost of Sale",
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Personnel Costs",
+        "column_6": "Salary/Allowances",
+        "column_7": 601292250
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Regular Spend",
+        "column_6": "Other Small Items",
+        "column_7": 41307675
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Maintenance/Repairs",
+        "column_6": "Assets/Equipment (excluding vehicles)",
+        "column_7": 219600000
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Utilities/Services",
+        "column_6": "Electricity",
+        "column_7": 64050000
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Rent",
+        "column_7": 183000000
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Sales/Marketing",
+        "column_6": "Events",
+        "column_7": 64050000
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Regular Spend",
+        "column_7": 45750000
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Regular Spend",
+        "column_7": 59475000
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Personnel Costs",
+        "column_6": "Director Drawings",
+        "column_7": 45750000
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "OPEX",
+        "column_5": "Contingency",
+        "column_7": 44504321.25
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "OPEX",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "OPEX",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "OPEX",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "OPEX",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "OPEX",
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "Financial Costs",
+        "column_5": "Non-Balloon Loans (interest+principal)",
+        "column_7": 28684656
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "Financial Costs",
+        "column_5": "Non-Balloon Loans (interest+principal)",
+        "column_7": 264394179
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "Financial Costs",
+        "column_5": "Non-Balloon Loans (interest+principal)",
+        "column_7": 136000000
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "Corporation Tax",
+        "column_7": 33347766.52499999
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_2": "Education",
+        "column_4": "CAPEX",
+        "column_5": "Construction",
+        "column_6": "Buildings",
+        "column_7": 178104500
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "CAPEX",
+        "column_5": "Construction",
+        "column_7": 80000000
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "CAPEX",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "CAPEX",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "CAPEX",
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Revenue",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "summary": "Expenditure",
+        "column_4": "Non Financial",
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      },
+      {
+        "column_7": 0
+      }
+    ],
+    "row_count": 115
+  },
+  "i_COS": {},
+  "info_metrics": {
+    "airtable_id": 2560511,
+    "industry_type": "Single",
+    "primary_industry": "Education",
+    "secondary_industry": "Education",
+    "business_name": "Sector",
+    "shalom_primary_school_burkoyen": "Education",
+    "number_of_teaching_staff": "Number of Pre Primary Students",
+    "40": 320,
+    "number_of_doctors": "Number of Clinicians",
+    "number_of_hotel_rooms": "Services offered",
+    "number_of_pump_attendants": "Number of Pumps",
+    "number_of_production_staff": "Items Produced",
+    "products_sold": "Number of Products Sold",
+    "farm_type": "Size of Land (Acres)",
+    "number_of_management_admin_staff": "Number of Drivers",
+    "6": 2
+  }
+}
