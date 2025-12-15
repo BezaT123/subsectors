@@ -1,9 +1,12 @@
 import json
 import pandas as pd
 import openai
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 import os
+import argparse
 from dataclasses import dataclass
+
+from extract import extract_setup_data_to_json
 
 @dataclass
 class BusinessSummary:
@@ -14,16 +17,17 @@ class BusinessSummary:
     revenue_streams: List[str]
     operating_costs: List[str]
     products: List[str]
-    cos_categories: List[str]  # New field for Cost of Sales categories
+    cos_categories: List[str]  # Cost of Sales categories
+    top_products: List[str]    # Top products (weighting-based)
     currency: str
-    benchmark_metrics: Dict[str, any]
+    benchmark_metrics: Dict[str, Any]
 
 @dataclass
 class ClassificationResult:
     sector: str
     primary_subsector: str
     additional_subsectors: List[str]
-    level_3_category_code: str # Now expecting a standardized CODE/LABEL
+    top_products: List[str]
     confidence_explanation: str
 
 class BusinessClassifier:
@@ -64,7 +68,7 @@ class BusinessClassifier:
         
         setup_data = json_data.get('i_Setup', {}).get('fields', {})
         cos_data = json_data.get('i_COS', {})
-        info_metrics = json_data.get('info_metrics', {})
+        info_metrics = json_data.get('info', {})
         
         # Extract basic business info
         business_name = setup_data.get('Business Name', {}).get('value', '')
@@ -98,22 +102,34 @@ class BusinessClassifier:
             if item.get('name'):
                 operating_costs.append(item.get('name'))
         
-        # Extract products and Cost of Sales categories from Cost of Sales
-        products = []
-        cos_categories = []
-        cos_products = cos_data.get('products', [])
+        # Extract products, Cost of Sales categories, and top products (by weighting only)
+        products: List[str] = []
+        cos_categories: List[str] = []
+        top_products_section = cos_data.get('topProducts', {})
+        top_products_weighting = top_products_section.get('byWeighting', []) if isinstance(top_products_section, dict) else []
+        top_products_list: List[str] = []
         
-        for product in cos_products:
-            product_name = product.get('productName', '').strip()
-            cos_category = product.get('costOfSalesCategory', '').strip()
+        # Collect top products names from weighting list
+        for item in top_products_weighting:
+            name = str(item.get('productName', '')).strip()
+            if name:
+                top_products_list.append(name)
+        
+        # Fallback: derive from products list if needed
+        cos_entries: List[Dict] = top_products_weighting if top_products_weighting else cos_data.get('products', [])
+        
+        for product in cos_entries:
+            product_name = str(product.get('productName', '')).strip()
+            cos_category = str(product.get('costOfSalesCategory', '')).strip()
             
-            # Extract product names (exclude header rows)
-            if product_name and not product_name.startswith('Cost of Sale'):
+            if product_name and product_name not in products:
                 products.append(product_name)
-            
-            # Extract unique cost of sales categories
             if cos_category and cos_category not in cos_categories:
                 cos_categories.append(cos_category)
+        
+        # If we still lack top products, use first 5 product names as a fallback
+        if not top_products_list:
+            top_products_list = products[:5]
         
         return BusinessSummary(
             business_name=business_name,
@@ -124,7 +140,8 @@ class BusinessClassifier:
             operating_costs=operating_costs,
             products=products,
             cos_categories=cos_categories,
-            currency=currency
+            top_products=top_products_list,
+            currency=currency,
             benchmark_metrics=info_metrics
         )
     
@@ -168,9 +185,9 @@ class BusinessClassifier:
         return relevant_sectors
     
     def create_llm_prompt(self, summary: BusinessSummary, relevant_sectors: Dict[str, List[str]]) -> str:
-"""Create a structured prompt for the LLM to classify the business"""
+        """Create a structured prompt for the LLM to classify the business"""
         
-        prompt = f"""<ROLE> \n You are a business classification expert. Based on the business information provided, classify this business into the most appropriate sector and sub-sectors. **Crucially, you must select a standardized Level 3 Category CODE/LABEL**, not a narrative description.
+        prompt = f"""<ROLE> \n You are a business classification expert. Based on the business information provided, classify this business into the most appropriate sector and sub-sectors. Focus on sector and sub-sector selection; ignore level 3 codes. Use top products as contextual evidence.
 
 BUSINESS INFORMATION:
 - Business Name: {summary.business_name}
@@ -183,12 +200,15 @@ REVENUE STREAMS:
 PRODUCTS/INVENTORY:
 {', '.join(summary.products[:20]) if summary.products else 'None specified'}
 
+TOP PRODUCTS (weighting-based):
+{', '.join(summary.top_products[:5]) if summary.top_products else 'None found'}
+
 COST OF SALES CATEGORIES:
 {', '.join(summary.cos_categories) if summary.cos_categories else 'None specified'}
 
 ---
-**BENCHMARKABLE OPERATIONAL METRICS (CRITICAL FOR LEVEL 3 CATEGORY SELECTION):**
-{json.dumps(summary.benchmark_metrics, indent=4) if summary.benchmark_metrics else 'None found. Default to product/revenue streams.'}
+**BENCHMARKABLE OPERATIONAL METRICS (CONTEXT ONLY):**
+{json.dumps(summary.benchmark_metrics, indent=4) if summary.benchmark_metrics else 'None found.'}
 ---
 
 AVAILABLE SECTORS AND SUB-SECTORS TO CHOOSE FROM:
@@ -200,40 +220,19 @@ AVAILABLE SECTORS AND SUB-SECTORS TO CHOOSE FROM:
                 prompt += f"  - {subsector}\n"
         
         prompt += """
-**STANDARDIZED LEVEL 3 CATEGORY CODES (Use this list to find the best match for the business):**
-
-Retail/Trade:
-- R_FMCG_GROCERY (General Groceries/Foodstuffs)
-- R_FMCG_STATIONERY (Focus on Stationery/Books)
-- R_BEAUTY_SALON (Services with retail sales)
-- R_MOBILE_RETAIL (Sales of phones/accessories)
-
-Education:
-- E_ECE_NURSERY (Private Nursery/Pre-School)
-- E_K12_PRIMARY (Private Primary School)
-- E_K12_SECONDARY (Private Secondary School)
-- E_HED_MANAGEMENT (College/University focus)
-
-Healthcare:
-- H_PHARMA_RETAIL (Retail Pharmacy/Dispensing)
-- H_CLINIC_GENERAL (General Practitioner/Outpatient services)
-- H_HOSPITAL_GENERAL (General Hospital, check 'num_beds')
-
-*If an exact match is not found, choose the best representative code.*
-
 CLASSIFICATION REQUIREMENTS:
 1. Choose the most appropriate PRIMARY SECTOR from the list above
 2. Select the best PRIMARY SUB-SECTOR from that sector
-3. If applicable, Identify any ADDITIONAL SUB-SECTORS (from the same or different sectors)
-4. **Choose the single best LEVEL 3 CATEGORY CODE** from the list provided above (e.g., E_ECE_NURSERY, R_MOBILE_RETAIL).
+3. If applicable, identify any ADDITIONAL SUB-SECTORS (from the same or different sectors)
+4. Do NOT return level 3 codes; instead, include the top products list (weighting-based) as part of the response.
 
 RESPONSE FORMAT (JSON):
 {
     "sector": "Selected primary sector",
     "primary_subsector": "Selected primary sub-sector",
     "additional_subsectors": ["Any additional relevant sub-sectors"],
-    "level_3_category_code": "Selected standardized code (e.g., E_ECE_NURSERY)",
-    "confidence_explanation": "Brief explanation of why these classifications were chosen based on the business data and how benchmark metrics or COS categories supported the LEVEL 3 CODE selection."
+    "top_products": ["Up to 5 top products (weighting-based)"],
+    "confidence_explanation": "Brief explanation of why these classifications were chosen based on the business data and top products."
 }
 
 Provide only the JSON response, no additional text."""        
@@ -262,7 +261,7 @@ Provide only the JSON response, no additional text."""
                 sector=result_json.get('sector', ''),
                 primary_subsector=result_json.get('primary_subsector', ''),
                 additional_subsectors=result_json.get('additional_subsectors', []),
-                level_3_category_code=result_json.get('level_3_category_code', ''), 
+                top_products=result_json.get('top_products', []),
                 confidence_explanation=result_json.get('confidence_explanation', '')
             )
             
@@ -287,14 +286,28 @@ Provide only the JSON response, no additional text."""
         # Get classification from LLM
         result = self.classify_with_llm(prompt)
         
+        # Attach top products from summary into result if LLM omitted them
+        if not result.top_products:
+            result.top_products = summary.top_products[:5]
+        
         return result
 
 def main():
     """Example usage of the Business Classifier"""
     
+    parser = argparse.ArgumentParser(description="Classify a business from Excel or extracted JSON.")
+    parser.add_argument(
+        "--file",
+        "-f",
+        required=True,
+        help="Path to company Excel file (.xlsm/.xlsx) or extracted JSON (.json)",
+    )
+    args = parser.parse_args()
+
     # Configuration
     OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")  # Set this environment variable
-    REFERENCE_FILE_PATH = 'Sub-Sectors_vf.xlsx'  # Path to your reference file
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    REFERENCE_FILE_PATH = os.path.join(script_dir, "categories ideas.xlsx")  # Hardcoded reference
     
     if not OPENAI_API_KEY:
         raise ValueError("Please set OPENAI_API_KEY environment variable")
@@ -302,9 +315,21 @@ def main():
     # Initialize classifier
     classifier = BusinessClassifier(OPENAI_API_KEY, REFERENCE_FILE_PATH)
     
-    # Load your JSON data
-    with open('company_data.json', 'r') as f:  # Replace with your JSON file path
-        json_data = json.load(f)
+    # Load data: Excel -> run extractor; JSON -> load directly
+    json_data = None
+    file_lower = args.file.lower()
+    if file_lower.endswith((".xlsx", ".xlsm", ".xltx", ".xltm")):
+        json_data = extract_setup_data_to_json(args.file, output_json_path=None)
+    elif file_lower.endswith(".json"):
+        with open(args.file, "r", encoding="utf-8") as f:
+            json_data = json.load(f)
+    else:
+        print("Unsupported file type. Use .xlsx/.xlsm or extracted .json.")
+        return None
+
+    if not json_data:
+        print(f"Could not extract/load data from {args.file}")
+        return None
     
     # Classify the business
     try:
@@ -315,7 +340,7 @@ def main():
         print(f"Sector: {result.sector}")
         print(f"Primary Sub-sector: {result.primary_subsector}")
         print(f"Additional Sub-sectors: {', '.join(result.additional_subsectors) if result.additional_subsectors else 'None'}")
-        print(f"Level 3 Category: {result.level_3_category}")
+        print(f"Top Products: {', '.join(result.top_products[:5]) if result.top_products else 'None'}")
         print(f"\nConfidence Explanation: {result.confidence_explanation}")
         
         # Return structured result for further processing
@@ -323,7 +348,7 @@ def main():
             'sector': result.sector,
             'primary_subsector': result.primary_subsector,
             'additional_subsectors': result.additional_subsectors,
-            'level_3_category': result.level_3_category,
+            'top_products': result.top_products[:5],
             'confidence_explanation': result.confidence_explanation
         }
         
